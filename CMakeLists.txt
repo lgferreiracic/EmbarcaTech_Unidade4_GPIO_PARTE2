@@ -1,3 +1,17 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.1.0)
+set(toolchainVersion 13_3_Rel1)
+set(picotoolVersion 2.1.0)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -42,15 +56,23 @@ pico_set_program_version(EmbarcaTech_Unidade4_GPIO_PARTE2 "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(EmbarcaTech_Unidade4_GPIO_PARTE2 0)
-pico_enable_stdio_usb(EmbarcaTech_Unidade4_GPIO_PARTE2 0)
+pico_enable_stdio_usb(EmbarcaTech_Unidade4_GPIO_PARTE2 1)
+
+pico_generate_pio_header(EmbarcaTech_Unidade4_GPIO_PARTE2 ${CMAKE_CURRENT_LIST_DIR}/EmbarcaTech_Unidade4_GPIO_PARTE2.pio)
+
+target_sources(EmbarcaTech_Unidade4_GPIO_PARTE2 PRIVATE EmbarcaTech_Unidade4_GPIO_PARTE2.c)
 
 # Add the standard library to the build
-target_link_libraries(EmbarcaTech_Unidade4_GPIO_PARTE2
-        pico_stdlib)
+target_link_libraries(EmbarcaTech_Unidade4_GPIO_PARTE2 PRIVATE
+        pico_stdlib
+        hardware_pio
+	    hardware_adc
+        pico_bootrom
+        hardware_pwm)
 
 # Add the standard include files to the build
 target_include_directories(EmbarcaTech_Unidade4_GPIO_PARTE2 PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+  ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
