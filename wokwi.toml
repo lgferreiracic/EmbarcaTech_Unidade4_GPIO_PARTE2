@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/EmbarcaTech_Unidade4_GPIO_PARTE2.uf2'
+elf = 'build/EmbarcaTech_Unidade4_GPIO_PARTE2.elf'
