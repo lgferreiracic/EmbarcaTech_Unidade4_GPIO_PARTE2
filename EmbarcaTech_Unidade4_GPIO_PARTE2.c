@@ -82,6 +82,107 @@ enum NotasMusicais {
     SI = 4950  // Si
 };
 
+// Inicializa as linhas como saída e colunas como entrada
+void init_gpio() {
+    for (int i = 0; i < ROWS; i++) {
+        gpio_init(row_pins[i]);
+        gpio_set_dir(row_pins[i], GPIO_OUT);
+        gpio_put(row_pins[i], 1); // Linha inicialmente em HIGH
+    }
+
+    for (int i = 0; i < COLS; i++) {
+        gpio_init(col_pins[i]);
+        gpio_set_dir(col_pins[i], GPIO_IN);
+        gpio_pull_up(col_pins[i]); // Ativa pull-up nas colunas
+    }
+}
+
+// Inicializa LEDs e Buzzer
+void init_buzzer() {
+    gpio_init(BUZZER_PIN);
+    gpio_set_dir(BUZZER_PIN, GPIO_OUT);
+    gpio_put(BUZZER_PIN, 0);
+}
+
+// Configura o PWM no pino do buzzer com uma frequência especificada
+void set_buzzer_frequency(uint pin, uint frequency) {
+    // Obter o slice do PWM associado ao pino
+    uint slice_num = pwm_gpio_to_slice_num(pin);
+
+    // Configurar o pino como saída de PWM
+    gpio_set_function(pin, GPIO_FUNC_PWM);
+
+    // Configurar o PWM com frequência desejada
+    pwm_config config = pwm_get_default_config();
+    pwm_config_set_clkdiv(&config, clock_get_hz(clk_sys) / (frequency * 4096)); // Calcula divisor do clock
+
+    pwm_init(slice_num, &config, true);
+    pwm_set_gpio_level(pin, 0); // Inicializa com duty cycle 0 (sem som)
+}
+
+// Função para tocar o buzzer por um tempo especificado (em milissegundos)
+void play_buzzer(uint pin, uint frequency, uint duration_ms) {
+
+    set_buzzer_frequency(pin, frequency);   
+    pwm_set_gpio_level(pin, 32768);           
+    sleep_ms(duration_ms);                   
+    pwm_set_gpio_level(pin, 0);              
+}
+
+// Função para tocar a nota Dó
+void playDo(uint duration_ms) {
+    play_buzzer(BUZZER_PIN, DO, duration_ms);
+}
+
+// Função para tocar a nota Ré
+void playRe(uint duration_ms) {
+    play_buzzer(BUZZER_PIN, RE, duration_ms);
+}
+
+// Função para tocar a nota Mi
+void playMi(uint duration_ms){
+    play_buzzer(BUZZER_PIN,MI,duration_ms);
+}
+
+// Função para tocar a nota Fá
+void playFa(uint duration_ms){
+    play_buzzer(BUZZER_PIN,FA,duration_ms);
+}
+
+// Função para tocar a nota Sol
+void playSol(uint duration_ms) {
+    play_buzzer(BUZZER_PIN, SOL, duration_ms);
+}
+
+// Função para tocar a nota Lá
+void playLa(uint duration_ms) {
+    play_buzzer(BUZZER_PIN, LA, duration_ms);
+}
+
+// Função para tocar a nota Si
+void playSi(uint duration_ms) {
+    play_buzzer(BUZZER_PIN, SI, duration_ms);
+}
+
+// Verifica qual tecla foi pressionada
+char scan_keypad() {
+    for (int row = 0; row < ROWS; row++) {
+        gpio_put(row_pins[row], 0); // Configura a linha atual como LOW
+
+        for (int col = 0; col < COLS; col++) {
+            if (gpio_get(col_pins[col]) == 0) { 
+                while (gpio_get(col_pins[col]) == 0); 
+                gpio_put(row_pins[row], 1); 
+                return key_map[row][col];
+            }
+        }
+
+        gpio_put(row_pins[row], 1); // Restaura a linha para HIGH
+    }
+
+    return '\0'; 
+}
+
 int main()
 {
     stdio_init_all();
