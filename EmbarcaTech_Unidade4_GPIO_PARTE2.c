@@ -423,27 +423,27 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                       MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                       WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE
                     }
                 }
             }
