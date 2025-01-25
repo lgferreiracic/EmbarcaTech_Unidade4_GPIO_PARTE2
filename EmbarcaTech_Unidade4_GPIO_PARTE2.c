@@ -443,7 +443,7 @@ void initialize_animations() {
                 },
                 {
                     .pixels = {
-                        WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE
+                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
                     }
                 }
             }
