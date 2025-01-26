@@ -426,27 +426,27 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
                     }
                 },
                 {
                     .pixels = {
-                        WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE
+                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
                     }
                 },
                 {
                     .pixels = {
-                        MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
                     }
                 },
                 {
                     .pixels = {
-                        WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE
+                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
                     }
                 },
                 {
                     .pixels = {
-                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
                     }
                 }
             }
@@ -699,17 +699,17 @@ int main()
     uint sm = pio_claim_unused_sm(pio, true);
     pio_matrix_program_init(pio, sm, offset, OUT_PIN);
 
-    char comando[25];  // Variável para armazenar o comando
-    int index = 0; // Índice do buffer de comando
+    //char comando[25];  // Variável para armazenar o comando
+    //int index = 0; // Índice do buffer de comando
 
     while (true) {
-        /*char key = scan_keypad();
+        char key = scan_keypad();
         if (key != '\0') {
             printf("Tecla pressionada: %c\n", key);
             control_leds_and_buzzer(pio, sm, key); // Controla LEDs e buzzer
-        }*/
-        lerComando(comando, sizeof(comando));
-        printf("\nComando Detectado: %s\n", comando);
-        processarComando(comando, pio, sm); 
+        }
+        //lerComando(comando, sizeof(comando));
+        //printf("\nComando Detectado: %s\n", comando);
+        //processarComando(comando, pio, sm); 
     }
 }
