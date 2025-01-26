@@ -363,7 +363,7 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
                     }
                 },
                 {
@@ -389,35 +389,28 @@ void initialize_animations() {
             }
         },
         // Animação 5
+       {
+    .frames = {
         {
-            .frames = {
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                },
-                {
-                    .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
-                },
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                },
-                {
-                    .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
-                },
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                }
+            .pixels = {
+        YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+        WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
             }
         },
+        {
+            .pixels = {
+                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
+            }
+        },
+        {
+            .pixels = {
+                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
+            }
+        }
+    }
+},
         // Animação 6
         {
             .frames = {
@@ -453,27 +446,23 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
+WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN               }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
+WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
+                       WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN  }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
+WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN   }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN
                     }
                 }
             }
