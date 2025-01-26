@@ -15,7 +15,7 @@
 #define BUZZER_PIN 21
 
 //pino de saída
-#define OUT_PIN 11
+#define OUT_PIN 7
 
 // Define os GPIOs para as linhas e colunas do teclado matricial 4x4
 #define ROWS 4
@@ -28,7 +28,7 @@
 // Define o número de animações
 #define NUM_ANIMATIONS 10
 // Define delay para 24 FPS
-#define FRAME_DELAY 41
+#define FRAME_DELAY 8
 
 // Definição da estrutura RGB
 typedef struct {
@@ -58,6 +58,7 @@ const RGB YELLOW = {1, 1, 0};
 const RGB CYAN = {0, 1, 1};
 const RGB MAGENTA = {1, 0, 1};
 const RGB WHITE = {1, 1, 1};
+const RGB BLACK = {0, 0, 0};
 
 // Mapear GPIOs para linhas e colunas
 const uint8_t row_pins[ROWS] = {8, 7, 6, 5};
@@ -226,9 +227,9 @@ void desenho_pio(RGB pixels[NUM_PIXELS], PIO pio, uint sm) {
 void play_animation(PIO pio, uint sm, int animationIndex) {
     for (int i = 0; i < 5; i++) {
         for (int frame = 0; frame < NUM_FRAMES; ++frame) {
-            play_buzzer(BUZZER_PIN, musics[animationIndex][frame], FRAME_DELAY);
             for (int pixel = 0; pixel < NUM_PIXELS; ++pixel) {
-                desenho_pio(animations[animationIndex].frames[frame].pixels, pio, sm);   
+                desenho_pio(animations[animationIndex].frames[frame].pixels, pio, sm);
+                sleep_ms(FRAME_DELAY);   
             }
         }
     }
@@ -243,27 +244,27 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        WHITE, WHITE, RED, WHITE, WHITE, WHITE, RED, RED, RED, WHITE, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, WHITE, RED, WHITE, RED, WHITE
+                        BLACK, BLACK, RED, BLACK, BLACK, BLACK, RED, RED, RED, BLACK, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, BLACK, RED, BLACK, RED, BLACK
                         }
                 },
                 {
                     .pixels = {
-                        WHITE, WHITE, MAGENTA, WHITE, WHITE, WHITE, RED, RED, RED, WHITE, MAGENTA, RED, RED, RED, MAGENTA, MAGENTA, RED, RED, RED, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE
+                        BLACK, BLACK, MAGENTA, BLACK, BLACK, BLACK, RED, RED, RED, BLACK, MAGENTA, RED, RED, RED, MAGENTA, MAGENTA, RED, RED, RED, MAGENTA, BLACK, MAGENTA, BLACK, MAGENTA, BLACK
                     }
                 },
                 {
                     .pixels = { 
-                        WHITE, WHITE, MAGENTA, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, MAGENTA, RED, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE
+                        BLACK, BLACK, MAGENTA, BLACK, BLACK, BLACK, MAGENTA, MAGENTA, MAGENTA, BLACK, MAGENTA, MAGENTA, RED, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, BLACK, MAGENTA, BLACK, MAGENTA, BLACK
                     }
                 },
                 {
                     .pixels = { 
-                        WHITE, WHITE, MAGENTA, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE
+                        BLACK, BLACK, MAGENTA, BLACK, BLACK, BLACK, MAGENTA, MAGENTA, MAGENTA, BLACK, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, BLACK, MAGENTA, BLACK, MAGENTA, BLACK
                     }
                 },
                 {
                     .pixels = { 
-                        WHITE, WHITE, RED, WHITE, WHITE, WHITE, RED, RED, RED, WHITE, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, WHITE, RED, WHITE, RED, WHITE
+                        BLACK, BLACK, RED, BLACK, BLACK, BLACK, RED, RED, RED, BLACK, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, BLACK, RED, BLACK, RED, BLACK
                     }
                 },
             }
@@ -273,27 +274,27 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, YELLOW, BLACK, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, YELLOW, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN
+                        BLACK, YELLOW, YELLOW, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, YELLOW, BLACK, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, YELLOW, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN
+                        BLACK, YELLOW, YELLOW, YELLOW, BLACK, YELLOW, BLACK, BLACK, BLACK, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, YELLOW, BLACK, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, YELLOW, YELLOW, CYAN, YELLOW, YELLOW, CYAN, YELLOW, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN
+                        BLACK, YELLOW, YELLOW, YELLOW, BLACK, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, YELLOW, BLACK, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, YELLOW, YELLOW, CYAN, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN, YELLOW, CYAN, YELLOW, CYAN, CYAN, CYAN, CYAN, CYAN, CYAN
+                        BLACK, WHITE, WHITE, WHITE, BLACK, WHITE, WHITE, WHITE, WHITE, WHITE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, WHITE, BLACK, WHITE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 }
             }
@@ -303,29 +304,30 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        GREEN, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, GREEN, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE
+                        GREEN, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, GREEN, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, GREEN, GREEN, BLUE, BLUE, CYAN, BLUE, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE
+                        GREEN, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, GREEN, GREEN, BLACK, BLACK, CYAN, BLACK, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, GREEN, CYAN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE
+                        GREEN, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, GREEN, CYAN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, CYAN, BLUE, BLUE, GREEN, BLUE, GREEN, GREEN, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE
+                        GREEN, CYAN, BLACK, BLACK, GREEN, BLACK, GREEN, GREEN, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, GREEN, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, GREEN, BLUE, GREEN, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE
+                        GREEN, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, GREEN, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, GREEN, BLACK, GREEN, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 }
+
             }
         },
         // Animação 3
@@ -333,30 +335,31 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, YELLOW, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, GREEN, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLUE, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLACK, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, WHITE, YELLOW, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, GREEN, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, YELLOW, BLUE, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLACK, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, WHITE, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, GREEN, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, YELLOW, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLACK, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, YELLOW, WHITE, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, GREEN, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLUE, YELLOW, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLACK, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 },
                 {
                     .pixels = {
-                        GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, YELLOW, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, YELLOW, GREEN, YELLOW, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN
+                        BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLUE, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK, BLUE, BLACK, BLUE, BLACK, BLACK, BLACK, BLACK, BLACK, BLACK
                     }
                 }
             }
+
         },
         // Animação 4
         {
@@ -423,27 +426,27 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, WHITE, MAGENTA, MAGENTA, MAGENTA, WHITE
                     }
                 }
             }
@@ -608,6 +611,7 @@ void control_leds_and_buzzer(PIO pio, uint sm, char key) {
             play_animation(pio, sm, 9);
             break;
         case '*':
+            set_leds(pio, sm, 0.0, 0.0, 0.0);
             printf("HABILITANDO O MODO GRAVAÇÃO");
 	        reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
             break;
@@ -616,11 +620,73 @@ void control_leds_and_buzzer(PIO pio, uint sm, char key) {
     }
 }
 
+// Função para ler o comando do terminal
+void lerComando(char *comando, size_t tamanho) {
+    printf("Digite um comando: ");
+    memset(comando, 0, tamanho);  // Limpa o buffer do comando
+    size_t index = 0;
+    while (1) {
+        char c = getchar();  // Lê um caractere do terminal
+        if (c == '\r' || c == '\n') {
+            comando[index] = '\0';
+            break;
+        } else if (index < tamanho - 1) {
+            comando[index++] = c;  // Armazena o caractere no buffer de comando
+            putchar(c);  // Mostra o caractere digitado no terminal
+        }
+    }
+    printf("\n");
+}
+
+// Função para ler o comando do terminal, do 0 ao 9
+void processarComando(const char *comando, PIO pio, uint sm) {
+    if(strcmp(comando, "0") == 0){
+        for(int i = 0; i<5; i++){
+            play_buzzer(BUZZER_PIN, musics[0][i], 200);
+        }
+        play_animation(pio, sm, 0);
+    } else if(strcmp(comando, "1") == 0){
+        for(int i = 0; i<5; i++){
+            play_buzzer(BUZZER_PIN, musics[1][i], 200);
+        }
+        play_animation(pio, sm, 1);
+    } else if(strcmp(comando, "2") == 0){
+        for(int i = 0; i<5; i++){
+            play_buzzer(BUZZER_PIN, musics[2][i], 200);
+        }
+        play_animation(pio, sm, 2);
+    } else if(strcmp(comando, "3") == 0){
+        for(int i = 0; i<5; i++){
+            play_buzzer(BUZZER_PIN, musics[3][i], 200);
+        }
+        play_animation(pio, sm, 3);
+    } else if(strcmp(comando, "4") == 0){
+        play_animation(pio, sm, 4);
+    } else if(strcmp(comando, "5") == 0){
+        play_animation(pio, sm, 5);
+    } else if(strcmp(comando, "6") == 0){
+
+        play_animation(pio, sm, 6);
+    } else if(strcmp(comando, "7") == 0){
+        play_animation(pio, sm, 7);
+    } else if(strcmp(comando, "8") == 0){
+        play_animation(pio, sm, 8);
+    } else if(strcmp(comando, "9") == 0){
+        play_animation(pio, sm, 9);
+    } else if(strcmp(comando, "*") == 0){
+        set_leds(pio, sm, 0.0, 0.0, 0.0);
+        printf("HABILITANDO O MODO GRAVAÇÃO");
+        reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
+    } else {
+        control_leds_and_buzzer(pio, sm, comando[0]);
+    }
+}
+
 //função principal
 int main()
 {
     stdio_init_all();
-    init_gpio();
+    //init_gpio();
     init_buzzer();
     initialize_animations();
 
@@ -633,11 +699,17 @@ int main()
     uint sm = pio_claim_unused_sm(pio, true);
     pio_matrix_program_init(pio, sm, offset, OUT_PIN);
 
+    char comando[25];  // Variável para armazenar o comando
+    int index = 0; // Índice do buffer de comando
+
     while (true) {
-        char key = scan_keypad();
+        /*char key = scan_keypad();
         if (key != '\0') {
             printf("Tecla pressionada: %c\n", key);
             control_leds_and_buzzer(pio, sm, key); // Controla LEDs e buzzer
-        }
+        }*/
+        lerComando(comando, sizeof(comando));
+        printf("\nComando Detectado: %s\n", comando);
+        processarComando(comando, pio, sm); 
     }
 }
