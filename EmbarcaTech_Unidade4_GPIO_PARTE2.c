@@ -361,6 +361,7 @@ void initialize_animations() {
         // Animação 4
         {
             .frames = {
+<<<<<<< Updated upstream
                 {
                     .pixels = {
                         WHITE, WHITE, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
@@ -386,6 +387,53 @@ void initialize_animations() {
                         RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
                     }
                 }
+=======
+    {
+        .pixels = {
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
+        }
+    },
+    {
+        .pixels = {
+            WHITE, WHITE, WHITE, WHITE, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, YELLOW, WHITE, YELLOW, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, WHITE, WHITE, WHITE, WHITE
+        }
+    },
+    {
+        .pixels = {
+            WHITE, WHITE, WHITE, WHITE, WHITE,
+            WHITE, WHITE, WHITE, WHITE, WHITE,
+            WHITE, WHITE, YELLOW, WHITE, WHITE,
+            WHITE, WHITE, WHITE, WHITE, WHITE,
+            WHITE, WHITE, WHITE, WHITE, WHITE
+        }
+    },
+    {
+        .pixels = {
+            WHITE, WHITE, WHITE, WHITE, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, YELLOW, WHITE, YELLOW, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, WHITE, WHITE, WHITE, WHITE
+        }
+    },
+    {
+        .pixels = {
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, WHITE, WHITE, WHITE, YELLOW,
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
+        }
+    }
+>>>>>>> Stashed changes
             }
         },
         // Animação 5
@@ -445,6 +493,7 @@ void initialize_animations() {
         {
             .frames = {
                 {
+<<<<<<< Updated upstream
                     .pixels = {
 WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN               }
                 },
@@ -465,6 +514,34 @@ WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GR
 WHITE,WHITE,GREEN,WHITE,WHITE,WHITE,WHITE,GREEN,WHITE,WHITE,GREEN,GREEN,GREEN,GREEN,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN,GREEN,WHITE,GREEN,WHITE,GREEN
                     }
                 }
+=======
+        .pixels = {
+            WHITE, WHITE, YELLOW, WHITE, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            YELLOW, YELLOW, BLUE, YELLOW, YELLOW,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, WHITE, YELLOW, WHITE, WHITE
+        }
+    },
+    {
+        .pixels = {
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+            YELLOW, YELLOW, BLUE, YELLOW, YELLOW,
+            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE
+        }
+    },
+    {
+        .pixels = {
+            WHITE, WHITE, YELLOW, WHITE, WHITE,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            YELLOW, YELLOW, BLUE, YELLOW, YELLOW,
+            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+            WHITE, WHITE, YELLOW, WHITE, WHITE
+        }
+    }
+>>>>>>> Stashed changes
             }
         },
         // Animação 8
