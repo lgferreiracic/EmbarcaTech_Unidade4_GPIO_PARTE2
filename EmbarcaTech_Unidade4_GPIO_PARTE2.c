@@ -61,16 +61,14 @@ const RGB WHITE = {1, 1, 1};
 const RGB BLACK = {0, 0, 0};
 
 // Mapear GPIOs para linhas e colunas
-const uint8_t row_pins[ROWS] = {8, 7, 6, 5};
-const uint8_t col_pins[COLS] = {4, 3, 2, 1};
+const uint8_t row_pins[ROWS] = {16, 9, 8, 4};
+const uint8_t col_pins[COLS] = {17, 18, 19, 20};
 
-// Matriz de teclas
-const char key_map[ROWS][COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}
-};
+// Mapeamento de teclas
+char key_map[16] = { '1', '4', '7', '*',
+                     '2', '5', '8', '0',
+                     '3', '6', '9', '#',
+                     'A', 'B', 'C', 'D' };
 
 // Frequências das notas musicais (em Hz)
 enum NotasMusicais {
@@ -98,16 +96,15 @@ int musics[NUM_ANIMATIONS][NUM_FRAMES] = {
 
 // Inicializa as linhas como saída e colunas como entrada
 void init_gpio() {
-    for (int i = 0; i < ROWS; i++) {
-        gpio_init(row_pins[i]);
-        gpio_set_dir(row_pins[i], GPIO_OUT);
-        gpio_put(row_pins[i], 1); // Linha inicialmente em HIGH
-    }
+    for (int i = 0; i < 4; i++)
+    {
+        gpio_init(col_pins[i]); // inicializa o pino como uma GPIO
+        gpio_set_dir(col_pins[i], GPIO_IN); // configura o pino coluna como entrada
+        gpio_pull_up(col_pins[i]); // ativação de resistor pull-up que quando precionado vai puxar o pino do estado 1 (HIGH) para o 0 (LOW)
 
-    for (int i = 0; i < COLS; i++) {
-        gpio_init(col_pins[i]);
-        gpio_set_dir(col_pins[i], GPIO_IN);
-        gpio_pull_up(col_pins[i]); // Ativa pull-up nas colunas
+        gpio_init(row_pins[i]); // inicializa o pino como uma GPIO
+        gpio_set_dir(row_pins[i], GPIO_OUT); // configura o pino como saida
+        gpio_put(row_pins[i], 1); // define o estado logico das linhas como 1 (HIGH)
     }
 }
 
@@ -180,21 +177,24 @@ void playSi(uint duration_ms) {
 
 // Verifica qual tecla foi pressionada
 char scan_keypad() {
-    for (int row = 0; row < ROWS; row++) {
-        gpio_put(row_pins[row], 0); // Configura a linha atual como LOW
+for (int row = 0; row < 4; row++)
+    {
+        gpio_put(row_pins[row], 0); // define o estado da linha atual como baixo (LOW)
 
-        for (int col = 0; col < COLS; col++) {
-            if (gpio_get(col_pins[col]) == 0) { 
-                while (gpio_get(col_pins[col]) == 0); 
-                gpio_put(row_pins[row], 1); 
-                return key_map[row][col];
+        for (int col = 0; col < 4; col++)
+        {
+            if (gpio_get(col_pins[col]) == 0) // verifica se a coluna está no estado baixo (LOW)
+            {
+                while (gpio_get(col_pins[col]) == 0); // espera até que a tecla seja liberada
+                gpio_put(row_pins[row], 1); // redefine o estado da linha para alto (HIGH)
+                return key_map[row * 4 + col]; // retorna o valor da tecla
             }
         }
 
-        gpio_put(row_pins[row], 1); // Restaura a linha para HIGH
+        gpio_put(row_pins[row], 1); // redefine a linha para alto (HIGH)
     }
 
-    return '\0'; 
+    return '\0'; // retorna o caractere nulo se nenhuma tecla for pressionada
 }
 
 //rotina para definição da intensidade de cores do led
@@ -686,7 +686,7 @@ void processarComando(const char *comando, PIO pio, uint sm) {
 int main()
 {
     stdio_init_all();
-    //init_gpio();
+    init_gpio();
     init_buzzer();
     initialize_animations();
 
