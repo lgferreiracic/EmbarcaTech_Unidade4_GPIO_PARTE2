@@ -364,76 +364,83 @@ void initialize_animations() {
         // Animação 4
         {
             .frames = {
-    {
-        .pixels = {
-            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
-        }
-    },
-    {
-        .pixels = {
-            WHITE, WHITE, WHITE, WHITE, WHITE,
-            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
-            WHITE, YELLOW, WHITE, YELLOW, WHITE,
-            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
-            WHITE, WHITE, WHITE, WHITE, WHITE
-        }
-    },
-    {
-        .pixels = {
-            WHITE, WHITE, WHITE, WHITE, WHITE,
-            WHITE, WHITE, WHITE, WHITE, WHITE,
-            WHITE, WHITE, YELLOW, WHITE, WHITE,
-            WHITE, WHITE, WHITE, WHITE, WHITE,
-            WHITE, WHITE, WHITE, WHITE, WHITE
-        }
-    },
-    {
-        .pixels = {
-            WHITE, WHITE, WHITE, WHITE, WHITE,
-            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
-            WHITE, YELLOW, WHITE, YELLOW, WHITE,
-            WHITE, YELLOW, YELLOW, YELLOW, WHITE,
-            WHITE, WHITE, WHITE, WHITE, WHITE
-        }
-    },
-    {
-        .pixels = {
-            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, WHITE, WHITE, WHITE, YELLOW,
-            YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
-        }
-    }
+                {
+                    .pixels = {
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
+                    }
+                },
+                {
+                    .pixels = {
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, YELLOW, WHITE, YELLOW, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
+                    }
+                },
+                {
+                    .pixels = {
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, YELLOW, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
+                    }
+                },
+                {
+                    .pixels = {
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, YELLOW, WHITE, YELLOW, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
+                    }
+                },
+                {
+                    .pixels = {
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
+                    }
+                }
             }
         },
         // Animação 5
-       {
-    .frames = {
         {
-            .pixels = {
-        YELLOW, WHITE, YELLOW,WHITE,YELLOW,
-        WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
+            .frames = {
+                {
+                    .pixels = {
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                    }
+                },
+                {
+                    .pixels = {
+                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                    }
+                },
+                {
+                    .pixels = {
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                    }
+                },
+                {
+                    .pixels = {
+                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                    }
+                },
+                {
+                    .pixels = {
+                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                    }
+                }
             }
         },
-        {
-            .pixels = {
-                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
-                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
-            }
-        },
-        {
-            .pixels = {
-                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
-                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
-            }
-        }
-    }
-},
         // Animação 6
         {
             .frames = {
@@ -466,65 +473,61 @@ void initialize_animations() {
         },
         // Animação 7
         {
-    .frames = {
-// Frame 1: Cacto inicial
-{
-    .pixels = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        GREEN, GREEN, GREEN, GREEN, GREEN,
-        GREEN, WHITE, GREEN, WHITE, GREEN,
-        GREEN, WHITE, GREEN, WHITE, GREEN
-    }
-},
+            .frames = {
+                {
+                    .pixels = {
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN
+                    }
+                },
 
-// Frame 2: Cacto com parte superior ligeiramente encolhida
-{
-    .pixels = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        GREEN, GREEN, GREEN, GREEN, GREEN,
-        GREEN, WHITE, GREEN, WHITE, GREEN,
-        WHITE, WHITE, GREEN, WHITE, WHITE
-    }
-},
+                // Frame 2: Cacto com parte superior ligeiramente encolhida
+                {
+                    .pixels = {
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
+                    }
+                },
 
-// Frame 3: Cacto encolhendo mais
-{
-    .pixels = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        GREEN, GREEN, GREEN, GREEN, GREEN,
-        GREEN, WHITE, GREEN, WHITE, GREEN,
-        WHITE, WHITE, GREEN, WHITE, WHITE
-    }
-},
+                // Frame 3: Cacto encolhendo mais
+                {
+                    .pixels = {
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
+                    }
+                },
 
-// Frame 4: Cacto mais encolhido
-{
-    .pixels = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        GREEN, GREEN, GREEN, GREEN, GREEN,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE
-    }
-},
+                // Frame 4: Cacto mais encolhido
+                {
+                    .pixels = {
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
+                    }
+                },
 
-// Frame 5: Cacto bastante encolhido
-{
-    .pixels = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE,
-        WHITE, WHITE, GREEN, WHITE, WHITE
-    }
-},
-
-
-}
-
+                // Frame 5: Cacto bastante encolhido
+                {
+                    .pixels = {
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
+                    }
+                }
+            }
         },
         // Animação 8
         {
