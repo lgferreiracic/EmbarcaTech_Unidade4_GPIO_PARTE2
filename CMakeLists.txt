@@ -11,6 +11,8 @@ set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
 if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
+
+
 # ====================================================================================
 # Generated Cmake Pico project file
 
