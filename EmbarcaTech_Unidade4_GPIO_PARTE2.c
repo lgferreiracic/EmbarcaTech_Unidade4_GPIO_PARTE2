@@ -366,27 +366,47 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, YELLOW, WHITE, YELLOW, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, YELLOW, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, WHITE, WHITE, WHITE, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, YELLOW, WHITE, YELLOW, WHITE,
+                        WHITE, YELLOW, YELLOW, YELLOW, WHITE,
+                        WHITE, WHITE, WHITE, WHITE, WHITE
                     }
                 },
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, WHITE, WHITE, WHITE, YELLOW,
+                        YELLOW, YELLOW, YELLOW, YELLOW, YELLOW
                     }
                 }
             }
@@ -456,27 +476,55 @@ void initialize_animations() {
             .frames = {
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN
                     }
                 },
+
+                // Frame 2: Cacto com parte superior ligeiramente encolhida
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
                     }
                 },
+
+                // Frame 3: Cacto encolhendo mais
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        GREEN, WHITE, GREEN, WHITE, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
                     }
                 },
+
+                // Frame 4: Cacto mais encolhido
                 {
                     .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        GREEN, GREEN, GREEN, GREEN, GREEN,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
                     }
                 },
+
+                // Frame 5: Cacto bastante encolhido
                 {
                     .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE,
+                        WHITE, WHITE, GREEN, WHITE, WHITE
                     }
                 }
             }
