@@ -412,35 +412,28 @@ void initialize_animations() {
             }
         },
         // Animação 5
+       {
+    .frames = {
         {
-            .frames = {
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                },
-                {
-                    .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
-                },
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                },
-                {
-                    .pixels = {
-                        CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED
-                    }
-                },
-                {
-                    .pixels = {
-                        RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN, CYAN, YELLOW, BLUE, GREEN, RED, RED, GREEN, BLUE, YELLOW, CYAN
-                    }
-                }
+            .pixels = {
+        YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+        WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
             }
         },
+        {
+            .pixels = {
+                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
+            }
+        },
+        {
+            .pixels = {
+                YELLOW, WHITE, YELLOW,WHITE,YELLOW,
+                WHITE,WHITE,YELLOW,WHITE,WHITE,YELLOW,YELLOW,YELLOW,YELLOW,YELLOW,WHITE,WHITE,YELLOW,WHITE,YELLOW,YELLOW,YELLOW,WHITE,YELLOW
+            }
+        }
+    }
+},
         // Animação 6
         {
             .frames = {
