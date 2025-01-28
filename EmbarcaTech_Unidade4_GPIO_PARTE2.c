@@ -458,6 +458,7 @@ void play_animation_3(PIO pio, uint sm) {
         }
     }
     desenho_pio(frame5, pio, sm);
+    play_buzzer(BUZZER_PIN, DO, 200);
 }
 
 // Função para reproduzir a animação 4
@@ -515,52 +516,248 @@ void play_animation_4(PIO pio, uint sm) {
 // Função para reproduzir a animação 5
 void play_animation_5(PIO pio, uint sm) {
     RGB frame1[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame2[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, CYAN,
+        BLACK, BLACK, BLUE, CYAN, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame3[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, CYAN, CYAN,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame4[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, CYAN, BLACK,
+        BLACK, BLACK, BLACK, BLACK, CYAN
     };
 
     RGB frame5[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK
     };
 
-    RGB *frames[NUM_FRAMES] = {frame1, frame2, frame3, frame4, frame5};
-    for (int i = 0; i < NUM_FRAMES; i++) {
-        for (int i = 0; i < NUM_FRAMES; i++) {
-            desenho_pio(frames[i], pio, sm);
-            sleep_ms(FRAME_DELAY);
-        }
+    RGB frame6[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, CYAN, BLACK, BLACK, BLACK,
+        CYAN, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame7[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        CYAN, CYAN, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame8[NUM_PIXELS] = {
+        CYAN, BLACK, BLACK, BLACK, BLACK,
+        BLACK, CYAN, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame9[NUM_PIXELS] = {
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame10[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, CYAN,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame11[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, CYAN, CYAN,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame12[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, CYAN, BLACK,
+        BLACK, BLACK, BLACK, BLACK, CYAN
+    };
+
+    RGB frame13[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK
+    };
+
+    RGB frame14[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, CYAN, BLACK, BLACK, BLACK,
+        CYAN, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame15[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        CYAN, CYAN, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame16[NUM_PIXELS] = {
+        CYAN, BLACK, BLACK, BLACK, BLACK,
+        BLACK, CYAN, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame17[NUM_PIXELS] = {
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame18[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, CYAN,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame19[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, CYAN,
+        BLACK, BLACK, BLACK, CYAN, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame20[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, CYAN,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame21[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, CYAN, BLACK,
+        BLACK, BLACK, BLACK, BLACK, CYAN
+    };
+
+    RGB frame22[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK
+    };
+
+    RGB frame23[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, CYAN, BLACK, BLACK, BLACK,
+        CYAN, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame24[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        CYAN, CYAN, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame25[NUM_PIXELS] = {
+        CYAN, BLACK, BLACK, BLACK, BLACK,
+        BLACK, CYAN, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame26[NUM_PIXELS] = {
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, CYAN, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame27[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, CYAN,
+        BLACK, BLACK, BLACK, CYAN, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame28[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, CYAN,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame29[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, CYAN, CYAN,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB *frames[30] = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame1, 
+                        frame9, frame10, frame11, frame12, frame13, frame14, frame15, frame16, 
+                        frame17, frame18, frame19, frame20, frame21, frame22, frame23, frame24, 
+                        frame25, frame26, frame27, frame28, frame29};
+
+    for (int i = 0; i < 30; i++) {
+        desenho_pio(frames[i], pio, sm);
+        play_buzzer(BUZZER_PIN, MI, 100);
+        sleep_ms(FRAME_DELAY);
     }
+    
 }
 
 // Função para reproduzir a animação 6
