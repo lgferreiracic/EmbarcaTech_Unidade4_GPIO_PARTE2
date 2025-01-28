@@ -846,7 +846,7 @@ void play_animation_6(PIO pio, uint sm) {
     };
 
     RGB *frames[15] = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12, frame13, frame14, frame15};
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < 2; i++) {
             for (int i = 0; i < 15; i++) {
             desenho_pio(frames[i], pio, sm);
             sleep_ms(FRAME_DELAY);
