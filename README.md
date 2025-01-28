@@ -77,7 +77,7 @@ Testes básicos foram implementados para garantir que cada componente está func
 Clique na imagem abaixo para assistir ao vídeo que demonstra a solução trabalhada e os resultados obtidos nos experimentos:
 
 <p align="center">
-  <a href="https://www.dropbox.com/scl/fi/fc8bx0rcy485shpfy8b4a/Subgrupo-1-Tarefa-2.mp4?rlkey=q38gt0ars4yzwmjfbmn9nxzd8&st=oxsiqhmb&dl=0">
+  <a href="https://www.dropbox.com/scl/fi/1c7e3040w6ro72k9ressg/Tarefa-GPIO-Parte-2.mp4?rlkey=7pkctacs1erd9zob246ukbdt0&st=qgc76v2q&dl=0">
     <img src="Video.png" alt="Vídeo demonstrativo" width="900">
   </a>
 </p>
