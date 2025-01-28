@@ -633,7 +633,7 @@ void play_animation_7(PIO pio, uint sm) {
     };
 
     RGB frame3[NUM_PIXELS] = {
-        WHITE, WHITE, GREEN, WHITE, WHITE,
+        GREEN, WHITE, GREEN, WHITE, GREEN,
         GREEN, WHITE, GREEN, WHITE, GREEN,
         GREEN, GREEN, GREEN, GREEN, GREEN,
         WHITE, WHITE, GREEN, WHITE, WHITE,
@@ -651,17 +651,42 @@ void play_animation_7(PIO pio, uint sm) {
     RGB frame5[NUM_PIXELS] = {
         WHITE, WHITE, GREEN, WHITE, WHITE,
         WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, GREEN, GREEN, GREEN, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+    };
+
+    RGB frame6[NUM_PIXELS] = {
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
         WHITE, WHITE, GREEN, WHITE, WHITE,
         WHITE, WHITE, GREEN, WHITE, WHITE,
         WHITE, WHITE, GREEN, WHITE, WHITE,
     };
 
-    RGB *frames[NUM_FRAMES] = {frame1, frame2, frame3, frame4, frame5};
-    for (int i = 0; i < NUM_FRAMES; i++) {
-        for (int i = 0; i < NUM_FRAMES; i++) {
+    RGB frame7[NUM_PIXELS] = {
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+    };
+
+    RGB frame8[NUM_PIXELS] = {
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+        WHITE, WHITE, GREEN, WHITE, WHITE,
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+        WHITE, WHITE, WHITE, WHITE, WHITE,
+    };
+
+    RGB *frames[8] = {frame1, frame2, frame3, frame4, frame5,frame6,frame7,frame8};
+    for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 8; i++) {
             desenho_pio(frames[i], pio, sm);
             sleep_ms(FRAME_DELAY);
         }
+        
     }
 }
 
