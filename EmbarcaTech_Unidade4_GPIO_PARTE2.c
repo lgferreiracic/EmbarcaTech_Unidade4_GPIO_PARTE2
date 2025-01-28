@@ -230,6 +230,7 @@ void play_animation_0(PIO pio, uint sm) {
             sleep_ms(FRAME_DELAY);
         }
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 1, que é um rosto feliz
@@ -310,6 +311,7 @@ void play_animation_1(PIO pio, uint sm) {
             sleep_ms(FRAME_DELAY);
         }
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 2, que é um rosto triste
@@ -365,6 +367,7 @@ void play_animation_2(PIO pio, uint sm) {
             sleep_ms(FRAME_DELAY);
         }
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 /// Função para reproduzir a animação 3, que é um robô
@@ -422,6 +425,7 @@ void play_animation_3(PIO pio, uint sm) {
     }
     desenho_pio(frame5, pio, sm);
     play_buzzer(BUZZER_PIN, DO, 200);
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 4, que é um quadrado
@@ -474,6 +478,7 @@ void play_animation_4(PIO pio, uint sm) {
             sleep_ms(FRAME_DELAY);
     }
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 } 
 
 // Função para reproduzir a animação 5, que é um relógio
@@ -720,7 +725,7 @@ void play_animation_5(PIO pio, uint sm) {
         play_buzzer(BUZZER_PIN, MI, 100);
         sleep_ms(FRAME_DELAY);
     }
-    
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 6, que é o fantasma do Pac Man
@@ -852,6 +857,7 @@ void play_animation_6(PIO pio, uint sm) {
             sleep_ms(FRAME_DELAY);
         }
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 7, que é um cacto
@@ -928,6 +934,7 @@ void play_animation_7(PIO pio, uint sm) {
         }
         
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para reproduzir a animação 8 (Chamas)
@@ -990,8 +997,8 @@ void play_animation_8(PIO pio, uint sm) {
         }
         cont++;
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
-
 
 // Função para reproduzir a animação 9 (Espiral)
 void play_animation_9(PIO pio, uint sm) {
@@ -1217,6 +1224,7 @@ int frequencies[25] = {
         play_buzzer(BUZZER_PIN, frequencies[i], 100); // Toca o som correspondente
         sleep_ms(80); // Ajuste de delay
     }
+    set_leds(pio, sm, 0, 0, 0); // Desliga todos os LEDs
 }
 
 // Função para controlar LEDs e Buzzer com base na tecla pressionada
