@@ -932,7 +932,6 @@ void play_animation_7(PIO pio, uint sm) {
 
 // Função para reproduzir a animação 8 (Chamas)
 void play_animation_8(PIO pio, uint sm) {
-    
     RGB frame1[NUM_PIXELS] = {
         BLACK, BLACK, BLACK, BLACK, BLACK,
         BLACK, RED, BLACK, RED, BLACK,
@@ -973,7 +972,6 @@ void play_animation_8(PIO pio, uint sm) {
         BLACK, RED, ORANGE, RED, BLACK
     };
 
-    
     RGB *frames[NUM_FRAMES] = {frame1, frame2, frame3, frame4, frame5};
 
     // Frequências para os sons de "crepitar"
@@ -981,14 +979,12 @@ void play_animation_8(PIO pio, uint sm) {
         MI, FA, SOL, LA, MI // Tons para cada frame
     };
 
-    int cont = 0;
-    while (cont < 3) {
+    for (int iteration = 0; iteration < 5; iteration++) {
         for (int i = 0; i < NUM_FRAMES; i++) {
             desenho_pio(frames[i], pio, sm);         
             play_buzzer(BUZZER_PIN, frequencies[i], 100);
             sleep_ms(FRAME_DELAY);                 
         }
-        cont++;
     }
 }
 
@@ -1211,12 +1207,14 @@ int frequencies[25] = {
                        frame17, frame18, frame19, frame20, frame21, frame22, frame23, frame24,
                        frame25};
 
-
-    for (int i = 0; i < 25; i++) {
-        desenho_pio(frames[i], pio, sm); 
-        play_buzzer(BUZZER_PIN, frequencies[i], 100); // Toca o som correspondente
-        sleep_ms(80); // Ajuste de delay
-    }
+    
+    for (int iteration = 0; iteration < 5; iteration++) {
+        for (int i = 0; i < 25; i++) {
+            desenho_pio(frames[i], pio, sm); 
+            play_buzzer(BUZZER_PIN, frequencies[i], 100); // Toca o som correspondente
+            sleep_ms(80); // Ajuste de delay
+      }
+   }
 }
 
 // Função para controlar LEDs e Buzzer com base na tecla pressionada
