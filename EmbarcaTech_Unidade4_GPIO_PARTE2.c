@@ -67,8 +67,6 @@ enum NotasMusicais {
     SI = 4950  // Si
 };
 
-
-
 // Inicializa as linhas como saída e colunas como entrada
 void init_gpio() {
     for (int i = 0; i < 4; i++)
@@ -113,41 +111,6 @@ void play_buzzer(uint pin, uint frequency, uint duration_ms) {
     pwm_set_gpio_level(pin, 32768);           
     sleep_ms(duration_ms);                   
     pwm_set_gpio_level(pin, 0);              
-}
-
-// Função para tocar a nota Dó
-void playDo(uint duration_ms) {
-    play_buzzer(BUZZER_PIN, DO, duration_ms);
-}
-
-// Função para tocar a nota Ré
-void playRe(uint duration_ms) {
-    play_buzzer(BUZZER_PIN, RE, duration_ms);
-}
-
-// Função para tocar a nota Mi
-void playMi(uint duration_ms){
-    play_buzzer(BUZZER_PIN,MI,duration_ms);
-}
-
-// Função para tocar a nota Fá
-void playFa(uint duration_ms){
-    play_buzzer(BUZZER_PIN,FA,duration_ms);
-}
-
-// Função para tocar a nota Sol
-void playSol(uint duration_ms) {
-    play_buzzer(BUZZER_PIN, SOL, duration_ms);
-}
-
-// Função para tocar a nota Lá
-void playLa(uint duration_ms) {
-    play_buzzer(BUZZER_PIN, LA, duration_ms);
-}
-
-// Função para tocar a nota Si
-void playSi(uint duration_ms) {
-    play_buzzer(BUZZER_PIN, SI, duration_ms);
 }
 
 // Verifica qual tecla foi pressionada
@@ -212,7 +175,7 @@ void desenho_pio(RGB pixels[NUM_PIXELS], PIO pio, uint sm) {
     }
 }
 
-// Função para reproduzir a animação 0
+// Função para reproduzir a animação 0, que é um coração pulsante
 void play_animation_0(PIO pio, uint sm) {
     
     RGB frame1[NUM_PIXELS] = {
@@ -269,7 +232,7 @@ void play_animation_0(PIO pio, uint sm) {
     }
 }
 
-// Função para reproduzir a animação 1
+// Função para reproduzir a animação 1, que é um rosto feliz
 void play_animation_1(PIO pio, uint sm) {
     RGB frame1[NUM_PIXELS] = {
         BLACK, BLACK, BLACK, BLACK, BLACK,
@@ -967,105 +930,292 @@ void play_animation_7(PIO pio, uint sm) {
     }
 }
 
-// Função para reproduzir a animação 8
+// Função para reproduzir a animação 8 (Chamas)
 void play_animation_8(PIO pio, uint sm) {
+    
     RGB frame1[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, RED, BLACK, RED, BLACK,
+        RED, ORANGE, RED, ORANGE, RED,
+        RED, ORANGE, YELLOW, ORANGE, RED,
+        BLACK, ORANGE, YELLOW, ORANGE, BLACK
     };
 
     RGB frame2[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        RED, BLACK, RED, BLACK, RED,
+        RED, YELLOW, ORANGE, YELLOW, RED,
+        RED, ORANGE, ORANGE, ORANGE, RED,
+        ORANGE, RED, YELLOW, RED, ORANGE
     };
 
     RGB frame3[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, RED, BLACK, RED, BLACK,
+        ORANGE, RED, YELLOW, RED, ORANGE,
+        RED, ORANGE, ORANGE, ORANGE, RED,
+        RED, ORANGE, YELLOW, ORANGE, BLACK
     };
 
     RGB frame4[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, RED, BLACK, YELLOW, BLACK,
+        RED, ORANGE, ORANGE, ORANGE, RED,
+        ORANGE, RED, YELLOW, RED, ORANGE,
+        BLACK, ORANGE, YELLOW, ORANGE, BLACK
     };
 
     RGB frame5[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, RED, BLACK, BLACK,
+        BLACK, RED, ORANGE, RED, BLACK,
+        ORANGE, YELLOW, ORANGE, YELLOW, ORANGE,
+        BLACK, RED, ORANGE, RED, BLACK
     };
 
+    
     RGB *frames[NUM_FRAMES] = {frame1, frame2, frame3, frame4, frame5};
-    for (int i = 0; i < NUM_FRAMES; i++) {
+
+    // Frequências para os sons de "crepitar"
+    int frequencies[NUM_FRAMES] = {
+        MI, FA, SOL, LA, MI // Tons para cada frame
+    };
+
+    int cont = 0;
+    while (cont < 3) {
         for (int i = 0; i < NUM_FRAMES; i++) {
-            desenho_pio(frames[i], pio, sm);
-            sleep_ms(FRAME_DELAY);
+            desenho_pio(frames[i], pio, sm);         
+            play_buzzer(BUZZER_PIN, frequencies[i], 100);
+            sleep_ms(FRAME_DELAY);                 
         }
+        cont++;
     }
 }
 
-// Função para reproduzir a animação 9
+
+// Função para reproduzir a animação 9 (Espiral)
 void play_animation_9(PIO pio, uint sm) {
+
+    // Frequências para os sons (uma para cada LED da espiral)
+int frequencies[25] = {
+    DO, RE, MI, FA, SOL, LA, SI, DO * 2, RE * 2, MI * 2,
+    FA * 2, SOL * 2, LA * 2, SI * 2, DO * 3, RE * 3, MI * 3,
+    FA * 3, SOL * 3, LA * 3, SI * 3, DO * 4, RE * 4, MI * 4, FA * 4
+};
+
+
+
     RGB frame1[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame2[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame3[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame4[NUM_PIXELS] = {
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
     RGB frame5[NUM_PIXELS] = {
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN,
-        CYAN, YELLOW, BLUE, GREEN, RED,
-        RED, GREEN, BLUE, YELLOW, CYAN
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
     };
 
-    RGB *frames[NUM_FRAMES] = {frame1, frame2, frame3, frame4, frame5};
-    for (int i = 0; i < 5; i++) {
-        for (int i = 0; i < NUM_FRAMES; i++) {
-            desenho_pio(frames[i], pio, sm);
-            sleep_ms(FRAME_DELAY);
-        }
+    RGB frame6[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame7[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLACK, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame8[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLACK, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame9[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame10[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame11[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame12[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLACK,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame13[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLACK, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame14[NUM_PIXELS] = {
+        BLACK, BLACK, BLACK, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame15[NUM_PIXELS] = {
+        BLACK, BLACK, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame16[NUM_PIXELS] = {
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame17[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame18[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame19[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame20[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLACK, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame21[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLACK, BLACK, BLACK, BLACK
+    };
+
+    RGB frame22[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLACK, BLACK, BLACK
+    };
+
+    RGB frame23[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLACK, BLACK
+    };
+
+    RGB frame24[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLACK
+    };
+
+    RGB frame25[NUM_PIXELS] = {
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE,
+        BLUE, BLUE, BLUE, BLUE, BLUE
+    };
+
+    
+    RGB *frames[25] = {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8,
+                       frame9, frame10, frame11, frame12, frame13, frame14, frame15, frame16,
+                       frame17, frame18, frame19, frame20, frame21, frame22, frame23, frame24,
+                       frame25};
+
+
+    for (int i = 0; i < 25; i++) {
+        desenho_pio(frames[i], pio, sm); 
+        play_buzzer(BUZZER_PIN, frequencies[i], 100); // Toca o som correspondente
+        sleep_ms(80); // Ajuste de delay
     }
 }
 
@@ -1137,55 +1287,6 @@ void control_leds_and_buzzer(PIO pio, uint sm, char key) {
     }
 }
 
-// Função para ler o comando do terminal
-void lerComando(char *comando, size_t tamanho) {
-    printf("Digite um comando: ");
-    memset(comando, 0, tamanho);  // Limpa o buffer do comando
-    size_t index = 0;
-    while (1) {
-        char c = getchar();  // Lê um caractere do terminal
-        if (c == '\r' || c == '\n') {
-            comando[index] = '\0';
-            break;
-        } else if (index < tamanho - 1) {
-            comando[index++] = c;  // Armazena o caractere no buffer de comando
-            putchar(c);  // Mostra o caractere digitado no terminal
-        }
-    }
-    printf("\n");
-}
-
-// Função para ler o comando do terminal, do 0 ao 9
-void processarComando(const char *comando, PIO pio, uint sm) {
-    if(strcmp(comando, "0") == 0){
-        play_animation_0(pio, sm);
-    } else if(strcmp(comando, "1") == 0){
-        play_animation_1(pio, sm);
-    } else if(strcmp(comando, "2") == 0){
-        play_animation_2(pio, sm);
-    } else if(strcmp(comando, "3") == 0){
-        play_animation_3(pio, sm);
-    } else if(strcmp(comando, "4") == 0){
-        play_animation_4(pio, sm);
-    } else if(strcmp(comando, "5") == 0){
-        play_animation_5(pio, sm);
-    } else if(strcmp(comando, "6") == 0){
-        play_animation_6(pio, sm);
-    } else if(strcmp(comando, "7") == 0){
-        play_animation_7(pio, sm);
-    } else if(strcmp(comando, "8") == 0){
-        play_animation_8(pio, sm);
-    } else if(strcmp(comando, "9") == 0){
-        play_animation_9(pio, sm);
-    } else if(strcmp(comando, "*") == 0){
-        set_leds(pio, sm, 0.0, 0.0, 0.0);
-        printf("HABILITANDO O MODO GRAVAÇÃO");
-        reset_usb_boot(0,0); //habilita o modo de gravação do microcontrolador
-    } else {
-        control_leds_and_buzzer(pio, sm, comando[0]);
-    }
-}
-
 //função principal
 int main()
 {
@@ -1193,17 +1294,11 @@ int main()
     init_gpio();
     init_buzzer();
 
-    //coloca a frequência de clock para 128 MHz, facilitando a divisão pelo clock
-    set_sys_clock_khz(128000, false);
-
     //configurações da PIO
     PIO pio = pio0; 
     uint offset = pio_add_program(pio, &pio_matrix_program);
     uint sm = pio_claim_unused_sm(pio, true);
     pio_matrix_program_init(pio, sm, offset, OUT_PIN);
-
-    //char comando[25];  // Variável para armazenar o comando
-    //int index = 0; // Índice do buffer de comando
 
     while (true) {
         char key = scan_keypad();
@@ -1211,8 +1306,5 @@ int main()
             printf("Tecla pressionada: %c\n", key);
             control_leds_and_buzzer(pio, sm, key); // Controla LEDs e buzzer
         }
-        //lerComando(comando, sizeof(comando));
-        //printf("\nComando Detectado: %s\n", comando);
-        //processarComando(comando, pio, sm); 
     }
 }
